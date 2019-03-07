@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="plug.js"></script>
+</head>
+
+<body>
+    <div id="fadeEffect" data-visible="isVisible">Trying fade effect</div>
+    <div class="cls main" data-attr="1">Trying fade effect</div>
+    <div class="cls" data-attr="2">Trying fade effect</div>
+    <div class="cls fadeOut" data-attr="3">Trying fade effect</div>
+    <script>
+        // var elmVisibility = S.attr('#fadeEffect', 'data-visible')
+        // console.log( elmVisibility ); // isVisible
+
+        // S.attr('#fadeEffect', 'data-visible', 'notVisible')
+
+        var clsElms = simple.find('.cls')
+        // var idElm = simple.find('#fadeEffect')
+        simple.addClass(clsElms, 'fade')
+        simple.removeClass('.cls', 'main')
+        // simple.attr(clsElms, 'data-attr', 'fade')
+        var attrib = simple.attr(clsElms, 'data-attr')
+        var attrib2 = simple.attr('#fadeEffect', 'data-visible')
+        console.log(attrib);
+        console.log(attrib2);
+        // simple.on('.cls', 'click', function () {
+        //     console.log(this); // <div class="cls"></div>
+        // })
+
+        // var textTest = simple.ihtml('#fadeEffect');
+        // simple.ihtml('.cls', 'Remake html method')
+        // simple.removeClass('.cls', 'main')
+        simple.fadeIn('#fadeEffect', {
+            delay: 1000,
+            duration: 3000
+        })
+        simple.fadeOut('.fadeOut', {
+            delay: 1000,
+            duration: 2000
+        })
+        // console.log(textTest)
+    </script>
+</body>
+
+</html>
