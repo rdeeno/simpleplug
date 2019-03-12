@@ -79,5 +79,11 @@ class SimpleMethods {
         })
         return element
     }
+    on(selector, method, func) {
+        let element = typeof selector === 'string' ? this.find(selector) : selector
+        element.forEach(selector => {
+            selector.addEventListener(method, func)
+        })
+    }
 }
 var simple = new SimpleMethods();
