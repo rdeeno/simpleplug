@@ -19,8 +19,11 @@
         // console.log( elmVisibility ); // isVisible
 
         // S.attr('#fadeEffect', 'data-visible', 'notVisible')
-
         var clsElms = simple.find('.cls')
+        simple.on(clsElms, 'mouseover', function () {
+            alert('work')
+        })
+
         // var idElm = simple.find('#fadeEffect')
         simple.addClass(clsElms, 'fade')
         simple.removeClass('.cls', 'main')
