@@ -19,17 +19,17 @@
         // console.log( elmVisibility ); // isVisible
 
         // S.attr('#fadeEffect', 'data-visible', 'notVisible')
-        var clsElms = simple.find('.cls')
-        simple.on(clsElms, 'mouseover', function () {
+        var clsElms = $.find('.cls')
+        $.on(clsElms, 'mouseover', function () {
             alert('work')
         })
 
         // var idElm = simple.find('#fadeEffect')
-        simple.addClass(clsElms, 'fade')
-        simple.removeClass('.cls', 'main')
+        $.addClass(clsElms, 'fade')
+        $.removeClass('.cls', 'main')
         // simple.attr(clsElms, 'data-attr', 'fade')
-        var attrib = simple.attr(clsElms, 'data-attr')
-        var attrib2 = simple.attr('#fadeEffect', 'data-visible')
+        var attrib = $.attr(clsElms, 'data-attr')
+        var attrib2 = $.attr('#fadeEffect', 'data-visible')
         console.log(attrib);
         console.log(attrib2);
         // simple.on('.cls', 'click', function () {
@@ -39,14 +39,15 @@
         // var textTest = simple.ihtml('#fadeEffect');
         // simple.ihtml('.cls', 'Remake html method')
         // simple.removeClass('.cls', 'main')
-        simple.fadeIn('#fadeEffect', {
+        $.fadeIn('#fadeEffect', {
             delay: 1000,
             duration: 3000
         })
-        simple.fadeOut('.fadeOut', {
+        $.fadeOut('.fadeOut', {
             delay: 1000,
             duration: 2000
         })
+        console.log($.toUpper(clsElms[0]))
         // console.log(textTest)
     </script>
 </body>

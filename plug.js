@@ -4,12 +4,19 @@ const errors = {
 
 class SimpleMethods {
     constructor() {}
+
+    /* FIND ALL CLASSES or ID's */
     find(selector) {
         if (typeof selector === 'string') {
             var element = document.querySelectorAll(selector);
             return element
         }
     }
+    toUpper(string){
+        return string.toUpperCase()
+    }
+
+    /* GET/SET ATTRIBUTE */
     attr(selector, name, value) {
         let attrContainer = [];
         var element = typeof selector === 'string' ? this.find(selector) : selector
@@ -22,6 +29,13 @@ class SimpleMethods {
         })
         return attrContainer
     }
+    /* CLASS METHODS */
+    classMethod(selector, cls, method) {
+        var element = typeof selector === 'string' ? this.find(selector) : selector
+        for (let i = 0; i < element.length; i++) {
+            element[i].classList[method](cls)
+        }
+    }
     addClass(selector, cls) {
         if (!selector) {
             return console.log('Give an selector')
@@ -33,12 +47,18 @@ class SimpleMethods {
             return console.log('Give an selector')
         }
         this.classMethod(selector, cls, 'remove')
-    }
-    classMethod(selector, cls, method) {
-        var element = typeof selector === 'string' ? this.find(selector) : selector
-        for (let i = 0; i < element.length; i++) {
-            element[i].classList[method](cls)
+    }  
+
+
+    /* EFFECTS */
+    defineEffect(selector, options) {
+        let defaults = {
+            delay: 1000,
+            duration: 1000
         }
+        let params = Object.assign({}, defaults, options)
+        let element = document.querySelector(selector);
+        element.style.transition = params.duration / 1000 + 's';
     }
     fadeIn(selector, options) {
         this.defineEffect(selector, options)
@@ -56,16 +76,9 @@ class SimpleMethods {
             element.style.opacity = 0;
         }, options.delay);
     }
-    defineEffect(selector, options) {
-        let defaults = {
-            delay: 1000,
-            duration: 1000
-        }
-        let params = Object.assign({}, defaults, options)
-        let element = document.querySelector(selector);
-        element.style.transition = params.duration / 1000 + 's';
-    }
-    ihtml(selector, text) {
+  
+    /* WORKING WITH inerrHTML */
+    html(selector, text) {
         if (!selector) {
             return
         }
@@ -79,6 +92,9 @@ class SimpleMethods {
         })
         return element
     }
+
+    /* EVENT LISTENERS */
+
     on(selector, method, func) {
         let element = typeof selector === 'string' ? this.find(selector) : selector
         element.forEach(selector => {
@@ -86,4 +102,4 @@ class SimpleMethods {
         })
     }
 }
-var simple = new SimpleMethods();
+var $ = new SimpleMethods();
